@@ -1,10 +1,8 @@
-import {Router} from 'aurelia-router';
+import aureliaRouter = require('aurelia-router');
 
 export class ChildRouter{
-  static inject() { return [Router]; }
-  constructor(router){
-    this.heading = 'Child Router';
-    this.router = router;
+  static inject = [aureliaRouter.Router];
+  constructor(private router: aureliaRouter.Router){
     router.configure(config => {
       config.map([
         { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
@@ -13,4 +11,5 @@ export class ChildRouter{
       ]);
     });
   }
+  heading = 'Child Router';
 }

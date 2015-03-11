@@ -1,60 +1,33 @@
-System.register([], function (_export) {
-  var _prototypeProperties, _classCallCheck, Welcome, UpperValueConverter;
-
-  return {
-    setters: [],
-    execute: function () {
-      "use strict";
-
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
-
-      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-      Welcome = _export("Welcome", (function () {
+var welcome;
+(function (welcome) {
+    var Welcome = (function () {
         function Welcome() {
-          _classCallCheck(this, Welcome);
-
-          this.heading = "Welcome to the Aurelia Navigation App!";
-          this.firstName = "John";
-          this.lastName = "Doe";
+            this.heading = 'Welcome to the Aurelia Navigation App!';
+            this.firstName = 'John';
+            this.lastName = 'Doe';
         }
-
-        _prototypeProperties(Welcome, null, {
-          fullName: {
+        Object.defineProperty(Welcome.prototype, "fullName", {
             get: function () {
-              return "" + this.firstName + " " + this.lastName;
+                return "" + this.firstName + " " + this.lastName;
             },
+            enumerable: true,
             configurable: true
-          },
-          welcome: {
-            value: function welcome() {
-              alert("Welcome, " + this.fullName + "!");
-            },
-            writable: true,
-            configurable: true
-          }
         });
-
+        Welcome.prototype.welcome = function () {
+            alert("Welcome, " + this.fullName + "!");
+        };
         return Welcome;
-      })());
-      UpperValueConverter = _export("UpperValueConverter", (function () {
+    })();
+    welcome.Welcome = Welcome;
+    var UpperValueConverter = (function () {
         function UpperValueConverter() {
-          _classCallCheck(this, UpperValueConverter);
         }
-
-        _prototypeProperties(UpperValueConverter, null, {
-          toView: {
-            value: function toView(value) {
-              return value && value.toUpperCase();
-            },
-            writable: true,
-            configurable: true
-          }
-        });
-
+        UpperValueConverter.prototype.toView = function (value) {
+            return value && value.toUpperCase();
+        };
         return UpperValueConverter;
-      })());
-    }
-  };
-});
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlbGNvbWUuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs2Q0FBYSxPQUFPLEVBZ0JQLG1CQUFtQjs7Ozs7Ozs7Ozs7QUFoQm5CLGFBQU87QUFDUCxpQkFEQSxPQUFPO2dDQUFQLE9BQU87O0FBRWhCLGNBQUksQ0FBQyxPQUFPLEdBQUcsd0NBQXdDLENBQUM7QUFDeEQsY0FBSSxDQUFDLFNBQVMsR0FBRyxNQUFNLENBQUM7QUFDeEIsY0FBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7U0FDdkI7OzZCQUxVLE9BQU87QUFPZCxrQkFBUTtpQkFBQSxZQUFFO0FBQ1osMEJBQVUsSUFBSSxDQUFDLFNBQVMsU0FBSSxJQUFJLENBQUMsUUFBUSxDQUFHO2FBQzdDOzs7QUFFRCxpQkFBTzttQkFBQSxtQkFBRTtBQUNQLG1CQUFLLGVBQWEsSUFBSSxDQUFDLFFBQVEsT0FBSSxDQUFDO2FBQ3JDOzs7Ozs7ZUFiVSxPQUFPOztBQWdCUCx5QkFBbUI7aUJBQW5CLG1CQUFtQjtnQ0FBbkIsbUJBQW1COzs7NkJBQW5CLG1CQUFtQjtBQUM5QixnQkFBTTttQkFBQSxnQkFBQyxLQUFLLEVBQUM7QUFDWCxxQkFBTyxLQUFLLElBQUksS0FBSyxDQUFDLFdBQVcsRUFBRSxDQUFDO2FBQ3JDOzs7Ozs7ZUFIVSxtQkFBbUIiLCJmaWxlIjoid2VsY29tZS5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
+    })();
+    welcome.UpperValueConverter = UpperValueConverter;
+})(welcome || (welcome = {}));
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2VsY29tZS5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyIsInNvdXJjZXMiOlsid2VsY29tZS50cyJdLCJuYW1lcyI6WyJ3ZWxjb21lIiwid2VsY29tZS5XZWxjb21lIiwid2VsY29tZS5XZWxjb21lLmNvbnN0cnVjdG9yIiwid2VsY29tZS5XZWxjb21lLmZ1bGxOYW1lIiwid2VsY29tZS5XZWxjb21lLndlbGNvbWUiLCJ3ZWxjb21lLlVwcGVyVmFsdWVDb252ZXJ0ZXIiLCJ3ZWxjb21lLlVwcGVyVmFsdWVDb252ZXJ0ZXIuY29uc3RydWN0b3IiLCJ3ZWxjb21lLlVwcGVyVmFsdWVDb252ZXJ0ZXIudG9WaWV3Il0sIm1hcHBpbmdzIjoiQUFBQSxJQUFPLE9BQU8sQ0F1QmI7QUF2QkQsV0FBTyxPQUFPLEVBQUMsQ0FBQztJQUVkQSxJQUFhQSxPQUFPQTtRQUFwQkMsU0FBYUEsT0FBT0E7WUFFbEJDLFlBQU9BLEdBQUdBLHdDQUF3Q0EsQ0FBQ0E7WUFDbkRBLGNBQVNBLEdBQUdBLE1BQU1BLENBQUNBO1lBQ25CQSxhQUFRQSxHQUFHQSxLQUFLQSxDQUFDQTtRQVVuQkEsQ0FBQ0E7UUFSQ0Qsc0JBQUlBLDZCQUFRQTtpQkFBWkE7Z0JBQ0VFLE1BQU1BLENBQUNBLEtBQUdBLElBQUlBLENBQUNBLFNBQVNBLFNBQUlBLElBQUlBLENBQUNBLFFBQVVBLENBQUNBO1lBQzlDQSxDQUFDQTs7O1dBQUFGO1FBRURBLHlCQUFPQSxHQUFQQTtZQUNFRyxLQUFLQSxDQUFDQSxjQUFZQSxJQUFJQSxDQUFDQSxRQUFRQSxNQUFHQSxDQUFDQSxDQUFDQTtRQUN0Q0EsQ0FBQ0E7UUFFSEgsY0FBQ0E7SUFBREEsQ0FBQ0EsQUFkREQsSUFjQ0E7SUFkWUEsZUFBT0EsR0FBUEEsT0FjWkEsQ0FBQUE7SUFFREEsSUFBYUEsbUJBQW1CQTtRQUFoQ0ssU0FBYUEsbUJBQW1CQTtRQUloQ0MsQ0FBQ0E7UUFIQ0Qsb0NBQU1BLEdBQU5BLFVBQU9BLEtBQUtBO1lBQ1ZFLE1BQU1BLENBQUNBLEtBQUtBLElBQUlBLEtBQUtBLENBQUNBLFdBQVdBLEVBQUVBLENBQUNBO1FBQ3RDQSxDQUFDQTtRQUNIRiwwQkFBQ0E7SUFBREEsQ0FBQ0EsQUFKREwsSUFJQ0E7SUFKWUEsMkJBQW1CQSxHQUFuQkEsbUJBSVpBLENBQUFBO0FBQ0hBLENBQUNBLEVBdkJNLE9BQU8sS0FBUCxPQUFPLFFBdUJiIn0=

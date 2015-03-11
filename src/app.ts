@@ -1,10 +1,9 @@
-import {Router} from 'aurelia-router';
-import bootstrap from 'bootstrap';
+/// <amd-dependency path="bootstrap" />
+import aureliaRouter = require('aurelia-router');
 
 export class App {
-  static inject() { return [Router]; }
-  constructor(router) {
-    this.router = router;
+  static inject = [aureliaRouter.Router];
+  constructor(private router: aureliaRouter.Router) {
     this.router.configure(config => {
       config.title = 'Aurelia';
       config.map([

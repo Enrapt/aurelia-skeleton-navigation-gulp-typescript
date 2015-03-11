@@ -1,41 +1,20 @@
-System.register(["aurelia-router"], function (_export) {
-  var Router, _prototypeProperties, _classCallCheck, ChildRouter;
-
-  return {
-    setters: [function (_aureliaRouter) {
-      Router = _aureliaRouter.Router;
-    }],
-    execute: function () {
-      "use strict";
-
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
-
-      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-      ChildRouter = _export("ChildRouter", (function () {
+define(["require", "exports", 'aurelia-router'], function (require, exports, aureliaRouter) {
+    var ChildRouter = (function () {
         function ChildRouter(router) {
-          _classCallCheck(this, ChildRouter);
-
-          this.heading = "Child Router";
-          this.router = router;
-          router.configure(function (config) {
-            config.map([{ route: ["", "welcome"], moduleId: "welcome", nav: true, title: "Welcome" }, { route: "flickr", moduleId: "flickr", nav: true }, { route: "child-router", moduleId: "child-router", nav: true, title: "Child Router" }]);
-          });
+            this.router = router;
+            this.heading = 'Child Router';
+            router.configure(function (config) {
+                config.map([
+                    { route: ['', 'welcome'], moduleId: 'welcome', nav: true, title: 'Welcome' },
+                    { route: 'flickr', moduleId: 'flickr', nav: true },
+                    { route: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' }
+                ]);
+            });
         }
-
-        _prototypeProperties(ChildRouter, {
-          inject: {
-            value: function inject() {
-              return [Router];
-            },
-            writable: true,
-            configurable: true
-          }
-        });
-
+        ChildRouter.inject = [aureliaRouter.Router];
         return ChildRouter;
-      })());
-    }
-  };
+    })();
+    exports.ChildRouter = ChildRouter;
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNoaWxkLXJvdXRlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsTUFBTSx5Q0FFRCxXQUFXOzs7O0FBRmhCLFlBQU0sa0JBQU4sTUFBTTs7Ozs7Ozs7O0FBRUQsaUJBQVc7QUFFWCxpQkFGQSxXQUFXLENBRVYsTUFBTTtnQ0FGUCxXQUFXOztBQUdwQixjQUFJLENBQUMsT0FBTyxHQUFHLGNBQWMsQ0FBQztBQUM5QixjQUFJLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQztBQUNyQixnQkFBTSxDQUFDLFNBQVMsQ0FBQyxVQUFBLE1BQU0sRUFBSTtBQUN6QixrQkFBTSxDQUFDLEdBQUcsQ0FBQyxDQUNULEVBQUUsS0FBSyxFQUFFLENBQUMsRUFBRSxFQUFDLFNBQVMsQ0FBQyxFQUFHLFFBQVEsRUFBRSxTQUFTLEVBQU8sR0FBRyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUMsU0FBUyxFQUFFLEVBQ2hGLEVBQUUsS0FBSyxFQUFFLFFBQVEsRUFBUyxRQUFRLEVBQUUsUUFBUSxFQUFRLEdBQUcsRUFBRSxJQUFJLEVBQUUsRUFDL0QsRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFHLFFBQVEsRUFBRSxjQUFjLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUMsY0FBYyxFQUFFLENBQ3RGLENBQUMsQ0FBQztXQUNKLENBQUMsQ0FBQztTQUNKOzs2QkFaVSxXQUFXO0FBQ2YsZ0JBQU07bUJBQUEsa0JBQUc7QUFBRSxxQkFBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDO2FBQUU7Ozs7OztlQUR6QixXQUFXIiwiZmlsZSI6ImNoaWxkLXJvdXRlci5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hpbGQtcm91dGVyLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIiwic291cmNlcyI6WyJjaGlsZC1yb3V0ZXIudHMiXSwibmFtZXMiOlsiQ2hpbGRSb3V0ZXIiLCJDaGlsZFJvdXRlci5jb25zdHJ1Y3RvciJdLCJtYXBwaW5ncyI6IjZFQUFPLGFBQWE7SUFFcEIsSUFBYSxXQUFXO1FBRXRCQSxTQUZXQSxXQUFXQSxDQUVGQSxNQUE0QkE7WUFBNUJDLFdBQU1BLEdBQU5BLE1BQU1BLENBQXNCQTtZQVNoREEsWUFBT0EsR0FBR0EsY0FBY0EsQ0FBQ0E7WUFSdkJBLE1BQU1BLENBQUNBLFNBQVNBLENBQUNBLFVBQUFBLE1BQU1BO2dCQUNyQkEsTUFBTUEsQ0FBQ0EsR0FBR0EsQ0FBQ0E7b0JBQ1RBLEVBQUVBLEtBQUtBLEVBQUVBLENBQUNBLEVBQUVBLEVBQUNBLFNBQVNBLENBQUNBLEVBQUdBLFFBQVFBLEVBQUVBLFNBQVNBLEVBQU9BLEdBQUdBLEVBQUVBLElBQUlBLEVBQUVBLEtBQUtBLEVBQUNBLFNBQVNBLEVBQUVBO29CQUNoRkEsRUFBRUEsS0FBS0EsRUFBRUEsUUFBUUEsRUFBU0EsUUFBUUEsRUFBRUEsUUFBUUEsRUFBUUEsR0FBR0EsRUFBRUEsSUFBSUEsRUFBRUE7b0JBQy9EQSxFQUFFQSxLQUFLQSxFQUFFQSxjQUFjQSxFQUFHQSxRQUFRQSxFQUFFQSxjQUFjQSxFQUFFQSxHQUFHQSxFQUFFQSxJQUFJQSxFQUFFQSxLQUFLQSxFQUFDQSxjQUFjQSxFQUFFQTtpQkFDdEZBLENBQUNBLENBQUNBO1lBQ0xBLENBQUNBLENBQUNBLENBQUNBO1FBQ0xBLENBQUNBO1FBVE1ELGtCQUFNQSxHQUFHQSxDQUFDQSxhQUFhQSxDQUFDQSxNQUFNQSxDQUFDQSxDQUFDQTtRQVd6Q0Esa0JBQUNBO0lBQURBLENBQUNBLEFBWkQsSUFZQztJQVpZLG1CQUFXLEdBQVgsV0FZWixDQUFBIn0=

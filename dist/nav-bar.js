@@ -1,35 +1,11 @@
-System.register(["aurelia-framework"], function (_export) {
-  var Behavior, _prototypeProperties, _classCallCheck, NavBar;
-
-  return {
-    setters: [function (_aureliaFramework) {
-      Behavior = _aureliaFramework.Behavior;
-    }],
-    execute: function () {
-      "use strict";
-
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
-
-      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-      NavBar = _export("NavBar", (function () {
+define(["require", "exports", 'aurelia-framework'], function (require, exports, aureliaFramework) {
+    var NavBar = (function () {
         function NavBar() {
-          _classCallCheck(this, NavBar);
         }
-
-        _prototypeProperties(NavBar, {
-          metadata: {
-            value: function metadata() {
-              return Behavior.withProperty("router");
-            },
-            writable: true,
-            configurable: true
-          }
-        });
-
+        NavBar.metadata = aureliaFramework.Behavior.withProperty('router');
         return NavBar;
-      })());
-    }
-  };
+    })();
+    exports.NavBar = NavBar;
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi1iYXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtNQUFRLFFBQVEseUNBRUgsTUFBTTs7OztBQUZYLGNBQVEscUJBQVIsUUFBUTs7Ozs7Ozs7O0FBRUgsWUFBTTtpQkFBTixNQUFNO2dDQUFOLE1BQU07Ozs2QkFBTixNQUFNO0FBQ1Ysa0JBQVE7bUJBQUEsb0JBQUU7QUFBRSxxQkFBTyxRQUFRLENBQUMsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUFDO2FBQUU7Ozs7OztlQURqRCxNQUFNIiwiZmlsZSI6Im5hdi1iYXIuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmF2LWJhci5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyIsInNvdXJjZXMiOlsibmF2LWJhci50cyJdLCJuYW1lcyI6WyJOYXZCYXIiLCJOYXZCYXIuY29uc3RydWN0b3IiXSwibWFwcGluZ3MiOiJnRkFBTyxnQkFBZ0I7SUFFdkIsSUFBYSxNQUFNO1FBQW5CQSxTQUFhQSxNQUFNQTtRQUVuQkMsQ0FBQ0E7UUFEUUQsZUFBUUEsR0FBR0EsZ0JBQWdCQSxDQUFDQSxRQUFRQSxDQUFDQSxZQUFZQSxDQUFDQSxRQUFRQSxDQUFDQSxDQUFDQTtRQUNyRUEsYUFBQ0E7SUFBREEsQ0FBQ0EsQUFGRCxJQUVDO0lBRlksY0FBTSxHQUFOLE1BRVosQ0FBQSJ9
