@@ -14,7 +14,7 @@ module.exports = function(config) {
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['src/**/*.js', 'test/unit/**/*.js']
+      loadFiles: ['dts/**/*.ts', 'src/**/*.ts', 'test/unit/**/*.ts']
     },
 
 
@@ -30,14 +30,28 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*.js': ['babel'],
-      'src/**/*.js': ['babel']
+      '**/*.ts': ['typescript']
     },
     'babelPreprocessor': {
       options: {
         sourceMap: 'inline',
         modules: 'system',
         moduleIds: false
+      }
+    },
+    typescriptPreprocessor: {
+      // options passed to the typescript compiler
+      options: {
+        sourceMap: false, // (optional) Generates corresponding .map file.
+        target: 'ES5', // (optional) Specify ECMAScript target version: 'ES3' (default), or 'ES5'
+        module: 'amd', // (optional) Specify module code generation: 'commonjs' or 'amd'
+        noResolve: true, // (optional) Skip resolution and preprocessing.
+        removeComments: true // (optional) Do not emit comments to output.
+      },
+      // transforming the filenames
+      transformPath: function(path) {
+        console.log("PATH", path);
+        return path.replace(/\.ts$/, '.js');
       }
     },
 

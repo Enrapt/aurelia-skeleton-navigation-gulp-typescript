@@ -1,6 +1,7 @@
-import {ChildRouter} from '../../src/child-router';
+import ChildRouter = require('../../src/child-router');
 
 class RouterStub {
+  routes;
   configure(handler) {
     handler(this);
   }

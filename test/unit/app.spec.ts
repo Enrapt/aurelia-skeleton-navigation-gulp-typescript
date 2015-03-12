@@ -1,6 +1,7 @@
-import {App} from '../../src/app';
+import App = require('../../src/app');
 
 class RouterStub {
+  routes;
   configure(handler) {
     handler(this);
   }

@@ -1,6 +1,8 @@
-import {Flickr} from '../../src/flickr';
+import Flickr = require('../../src/flickr');
 
 class HttpStub {
+  itemStub;
+  url;
   jsonp(url) {
     var response = this.itemStub;
     this.url = url;
