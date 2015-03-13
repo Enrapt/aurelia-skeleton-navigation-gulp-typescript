@@ -1,4 +1,6 @@
-import Flickr = require('../../src/flickr');
+/// <reference path="../../../dts/es6-promise.d.ts" />
+/// <reference path="../../../dts/jasmine.d.ts" />
+import Flickr = require('../../app/flickr');
 
 class HttpStub {
   itemStub;

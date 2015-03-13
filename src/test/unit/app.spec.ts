@@ -1,8 +1,11 @@
-import ChildRouter = require('../../src/child-router');
+/// <reference path="../../../dts/aurelia.d.ts" />
+/// <reference path="../../../dts/jasmine.d.ts" />
+import App = require('../../app/app');
+import aurelia = require('aurelia-router');
 
-class RouterStub {
+class RouterStub extends aurelia.Router{
   routes;
-  configure(handler) {
+  configure = (handler) => {
     handler(this);
   }
   map(routes) {
@@ -10,16 +13,16 @@ class RouterStub {
   }
 }
 
-describe('the Child Router module', () => {
+describe('the App module', () => {
   var sut;
-  beforeEach(() => { sut = new ChildRouter(new RouterStub()); });
+  beforeEach(() => { sut = new App(new RouterStub()); });
 
   it('contains a router property', () => {
-    expect(sut.router).toBeDefined();
+    expect(sut.router).toBeDefined(); 
   });
-
-  it('configures the heading', () => {
-    expect(sut.heading).toEqual('Child Router');
+  
+  it('configures the router title', () => {
+    expect(sut.router.title).toEqual('Aurelia');
   });
 
   it('should have a welcome route', () => {

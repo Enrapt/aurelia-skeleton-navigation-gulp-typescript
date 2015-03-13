@@ -14,7 +14,8 @@ module.exports = function(config) {
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['dts/**/*.ts', 'src/**/*.ts', 'test/unit/**/*.ts']
+      loadFiles: ['dist/test/**/*.js'],
+      serveFiles: ['dist/app/**/*.js']
     },
 
 

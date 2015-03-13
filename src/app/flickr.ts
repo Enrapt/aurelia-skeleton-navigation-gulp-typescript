@@ -1,8 +1,9 @@
+/// <reference path="../../dts/aurelia.d.ts" />
 import aureliaHttpClient = require('aurelia-http-client');
 
 var url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=rainier&tagmode=any&format=json';
 
-export class Flickr{
+class Flickr{
   static inject = [aureliaHttpClient.HttpClient];
   constructor(public http: aureliaHttpClient.HttpClient){
   }
@@ -18,4 +19,5 @@ export class Flickr{
   canDeactivate(){
     return confirm('Are you sure you want to leave?');
   }
-}
+};
+export = Flickr;
