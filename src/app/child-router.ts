@@ -1,11 +1,10 @@
-/// <amd-dependency path="bootstrap" />
+/// <reference path="../../dts/aurelia.d.ts" />
 import aureliaRouter = require('aurelia-router');
 
-export class App {
+class ChildRouter{
   static inject = [aureliaRouter.Router];
-  constructor(private router: aureliaRouter.Router) {
-    this.router.configure(config => {
-      config.title = 'Aurelia';
+  constructor(private router: aureliaRouter.Router){
+    router.configure(config => {
       config.map([
         { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
         { route: 'flickr',        moduleId: 'flickr',       nav: true },
@@ -13,4 +12,6 @@ export class App {
       ]);
     });
   }
-}
+  heading = 'Child Router';
+};
+export = ChildRouter;
