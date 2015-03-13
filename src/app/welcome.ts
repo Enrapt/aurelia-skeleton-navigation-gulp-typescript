@@ -22,3 +22,5 @@ module welcome {
     }
   }
 }
+
+export = welcome;
