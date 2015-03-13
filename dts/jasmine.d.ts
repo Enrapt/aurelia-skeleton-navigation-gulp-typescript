@@ -53,6 +53,7 @@ declare module jasmine {
     function pp(value: any): string;
     function getEnv(): Env;
     function addMatchers(matchers: any): Any;
+    function getGlobal(): { confirm: Function };
 
     interface Any {
 
