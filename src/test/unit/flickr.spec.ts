@@ -31,7 +31,8 @@ describe('the Flickr module', () => {
   });
 
   it('calls confirm on canDeactivate', () => {
-    var sut = new Flickr(),
+    var http = new HttpStub(),
+        sut = new Flickr(http),
         global = jasmine.getGlobal();
     spyOn(global, "confirm");
     sut.canDeactivate();

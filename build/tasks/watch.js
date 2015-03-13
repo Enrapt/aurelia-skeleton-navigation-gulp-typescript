@@ -1,11 +1,7 @@
 var gulp = require('gulp');
 var paths = require('../paths');
 var browserSync = require('browser-sync');
-
-// outputs changes to files to the console
-function reportChange(event){
-  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-}
+var reportChange = require('../reportChange').reportChange;
 
 // this task wil watch for changes
 // to js, html, and css files and call the
