@@ -1,22 +1,26 @@
 var gulp = require('gulp');
 var paths = require('../paths');
-var to5 = require('gulp-babel');
 var plumber = require('gulp-plumber');
-var gulp = require('gulp');
 var webdriver_update = require('gulp-protractor').webdriver_update;
 var protractor = require("gulp-protractor").protractor;
+var ts = require('gulp-typescript');
+
+var tsProject = ts.createProject({
+  declarationFiles: false,
+  noExternalResolve: true,
+  target: 'ES5',
+  module: 'commonjs'
+});
 
 // for full documentation of gulp-protractor,
 // please check https://github.com/mllrsohn/gulp-protractor
 gulp.task('webdriver_update', webdriver_update);
 
-// transpiles files in
-// /test/e2e/src/ from es6 to es5
-// then copies them to test/e2e/dist/
+// then copies them to dist/e2e/dist/
 gulp.task('build-e2e', function () {
-  return gulp.src(paths.e2eSpecsSrc)
-    .pipe(plumber())
-    .pipe(to5())
+  var tsResult = gulp.src([paths.e2eSpecsSrc, paths.dtsSource])
+    .pipe(ts(tsProject));
+  return tsResult.js
     .pipe(gulp.dest(paths.e2eSpecsDist));
 });
 
