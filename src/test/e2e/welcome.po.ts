@@ -1,7 +1,5 @@
 /// <reference path="../../../dts/protractor.d.ts" />
 
-declare var by: AureliaSeleniumPlugins;
-
 class PageObject_Welcome {
 
   constructor() {
