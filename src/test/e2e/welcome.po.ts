@@ -13,11 +13,15 @@ class PageObject_Welcome {
   }
 
   setFirstname(value) {
-    return element(by.valueBind('firstName')).clear()["sendKeys"](value);
+    var el = element(by.valueBind('firstName'));
+    el.clear();
+    return el.sendKeys(value);
   }
 
   setLastname(value) {
-    return element(by.valueBind('lastName')).clear()["sendKeys"](value);
+    var el = element(by.valueBind('lastName'));
+    el.clear();
+    return el.sendKeys(value);
   }
 
   getFullname() {
