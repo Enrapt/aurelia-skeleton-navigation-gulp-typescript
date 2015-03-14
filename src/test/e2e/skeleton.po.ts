@@ -1,5 +1,3 @@
-declare var browser: AureliaProtractorPlugins;
-
 class PageObject_Skeleton {
 
   constructor() {
