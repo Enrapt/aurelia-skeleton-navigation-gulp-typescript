@@ -1,8 +1,19 @@
-# aurelia-skeleton-navigation
+# aurelia-skeleton-navigation-gulp-typescript
 
-This skeleton is part of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to build your ES6 code with the 6to5 compiler. Karma/Jasmine testing is also configured.
+This is a TypeScript implementation of navigation skeleton of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to compile your TypeScript code with [gulp-typescript plugin](https://www.npmjs.com/package/gulp-typescript). Karma/Jasmine testing is also configured.
+
+This repository does not require Visual Studio to run.
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
+
+## Notes regarding conversion of original skeleton application from ES6 to TypeScript
+
+1. Structure of folders was changed in order to let TypeScript compiler, System.js and Karma runner to reference all files correctly.
+2. All dependencies to Babel were removed, instead [gulp-typescript plugin](https://www.npmjs.com/package/gulp-typescript) is used.
+3. `/// <reference path="../../dts/aurelia.d.ts" />` reference are added to support intellisense for certain IDEs and editors. They are actually not required to for successful compilation.
+4. Original skeleton navigation [extends](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) Protractor / WebDriver, so we have added appropriate d.ts file to cover this extended functionality (dts/aurelia-protractor.d.ts).
+5. `gulp tdd` task was updated to enable watching and recompiling of both main and test sources and re-running karma when a change occurs. Note: you will need to use `gulp tdd` command instead of `karma start` if you want your TypeScript files to be watched.
+6. `gulp e2e` command was also updated to include TypeScript compilation step (of only e2e test sources).
 
 ## Running The App
 
