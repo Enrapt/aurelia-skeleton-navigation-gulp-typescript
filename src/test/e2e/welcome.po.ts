@@ -1,4 +1,8 @@
-export class PageObject_Welcome {
+/// <reference path="../../../dts/protractor.d.ts" />
+
+declare var by: AureliaSeleniumPlugins;
+
+class PageObject_Welcome {
 
   constructor() {
 
@@ -9,11 +13,15 @@ export class PageObject_Welcome {
   }
 
   setFirstname(value) {
-    return element(by.valueBind('firstName')).clear().sendKeys(value);
+    var el = element(by.valueBind('firstName'));
+    el.clear();
+    return el.sendKeys(value);
   }
 
   setLastname(value) {
-    return element(by.valueBind('lastName')).clear().sendKeys(value);
+    var el = element(by.valueBind('lastName'));
+    el.clear();
+    return el.sendKeys(value);
   }
 
   getFullname() {
@@ -33,6 +41,8 @@ export class PageObject_Welcome {
         function(alert) { alert.accept(); return true; },
         function() { return false; }
       );
-    });
+    }, 100);
   }
 }
+
+export = PageObject_Welcome;

@@ -1,4 +1,6 @@
-export class PageObject_Skeleton {
+declare var browser: AureliaProtractorPlugins;
+
+class PageObject_Skeleton {
 
   constructor() {
 
@@ -13,3 +15,5 @@ export class PageObject_Skeleton {
     return browser.waitForHttpDone();
   }
 }
+
+export = PageObject_Skeleton;

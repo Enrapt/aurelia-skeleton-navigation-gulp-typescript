@@ -16,6 +16,6 @@ module.exports = {
   unitSpecsSrc:  testRoot + 'unit/**/*.ts',
   unitSpecsDist: outRoot  + 'test/unit/',
 
-  e2eSpecsSrc:   testRoot + 'test/e2e/src/*.js',
-  e2eSpecsDist:  outRoot  + 'test/e2e/dist/'
+  e2eSpecsSrc:   testRoot + 'e2e/**/*.ts',
+  e2eSpecsDist:  outRoot  + 'e2e/dist/'
 };
