@@ -1,6 +1,10 @@
-import {Flickr} from '../../src/flickr';
+/// <reference path="../../../dts/es6-promise.d.ts" />
+/// <reference path="../../../dts/jasmine.d.ts" />
+import Flickr = require('../../app/flickr');
 
 class HttpStub {
+  itemStub;
+  url;
   jsonp(url) {
     var response = this.itemStub;
     this.url = url;
@@ -27,7 +31,8 @@ describe('the Flickr module', () => {
   });
 
   it('calls confirm on canDeactivate', () => {
-    var sut = new Flickr(),
+    var http = new HttpStub(),
+        sut = new Flickr(http),
         global = jasmine.getGlobal();
     spyOn(global, "confirm");
     sut.canDeactivate();

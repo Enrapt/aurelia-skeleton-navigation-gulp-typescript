@@ -1,14 +1,21 @@
 var path = require('path');
 
-var appRoot = 'src/';
+var appRoot  = 'src/app/';
+var testRoot = 'src/test/';
+var outRoot  = 'dist/'; 
 
 module.exports = {
-  root: appRoot,
-  source: appRoot + '**/*.js',
-  html: appRoot + '**/*.html',
+  root:   appRoot,
+  source: appRoot + '**/*.ts',
+  html:   appRoot + '**/*.html',
+  dtsSource: 'dts/**/*.ts',
   style: 'styles/**/*.css',
-  output: 'dist/',
   doc:'./doc',
-  e2eSpecsSrc: 'test/e2e/src/*.js',
-  e2eSpecsDist: 'test/e2e/dist/'
+  output: outRoot + 'app/',
+
+  unitSpecsSrc:  testRoot + 'unit/**/*.ts',
+  unitSpecsDist: outRoot  + 'test/unit/',
+
+  e2eSpecsSrc:   testRoot + 'e2e/**/*.ts',
+  e2eSpecsDist:  outRoot  + 'e2e/dist/'
 };

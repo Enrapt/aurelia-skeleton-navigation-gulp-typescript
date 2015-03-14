@@ -2,22 +2,23 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
-var to5 = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
-var compilerOptions = require('../babel-options');
 var assign = Object.assign || require('object.assign');
+var ts = require('gulp-typescript');
 
-// transpiles changed es6 files to SystemJS format
-// the plumber() call prevents 'pipe breaking' caused
-// by errors from other gulp plugins
-// https://www.npmjs.com/package/gulp-plumber
+var tsProject = ts.createProject({
+  declarationFiles: false,
+  noExternalResolve: true,
+  target: 'ES5',
+  module: 'AMD'
+});
+
+// gulp-typescript compiles TS files directly into ES5
 gulp.task('build-system', function () {
-  return gulp.src(paths.source)
-    .pipe(plumber())
-    .pipe(changed(paths.output, {extension: '.js'}))
-    .pipe(sourcemaps.init())
-    .pipe(to5(assign({}, compilerOptions, {modules:'system'})))
+  var tsResult = gulp.src([paths.source, paths.dtsSource])
+    .pipe(ts(tsProject));
+  return tsResult.js
     .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
     .pipe(gulp.dest(paths.output));
 });
