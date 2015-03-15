@@ -15,6 +15,8 @@ This repository does not require Visual Studio to run.
 5. `gulp tdd` task was updated to enable watching and recompiling of both main and test sources and re-running karma when a change occurs. Note: you will need to use `gulp tdd` command instead of `karma start` if you want your TypeScript files to be watched.
 6. `gulp e2e` command was also updated to include TypeScript compilation step (of only e2e test sources).
 
+Copyrights on the definition files are respective of each contributor listed at the beginning of each definition file. Special thanks to [Mike Graham](https://github.com/cmichaelgraham) for his [Aurelia d.ts](https://github.com/cmichaelgraham/aurelia-typescript/blob/master/skel-nav-esri-vs-ts/skel-nav-esri-vs-ts/typings/aurelia/aurelia.d.ts).
+
 ## Running The App
 
 To run the app, follow these steps.
@@ -112,6 +114,8 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
 4. もともとのサンプルはProtractor / WebDriverの機能を[拡張している](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) ので、コンパイルエラーにならないようにd.ts(dts/aurelia-protractor.d.ts)が追加されている。
 5. `gulp tdd`タスクがTypescriptのメインとテストのソースを監視し、変更があったときに再コンパイルし、テストが実施されるように対応してある。
 6. `gulp e2e`タスクもe2eテストのソースのコンパイルステップが含まれるように更新されている。
+
+TypeScript型定義ファイルの著作権については各d.tsファイルの先頭に記述されています。[aurelia.d.ts](https://github.com/cmichaelgraham/aurelia-typescript/blob/master/skel-nav-esri-vs-ts/skel-nav-esri-vs-ts/typings/aurelia/aurelia.d.ts)を提供してくださった[Mike Graham](https://github.com/cmichaelgraham)に殊に感謝します。
 
 ## アプリケーションの起動方法
 
