@@ -12,6 +12,7 @@ module.exports = {
   style: 'styles/**/*.css',
   doc:'./doc',
   output: outRoot + 'app/',
+  sourceMapRelativePath: '/' + appRoot,
 
   unitSpecsSrc:  testRoot + 'unit/**/*.ts',
   unitSpecsDist: outRoot  + 'test/unit/',
