@@ -7,13 +7,6 @@ var paths = require('../paths');
 var assign = Object.assign || require('object.assign');
 var ts = require('gulp-typescript');
 
-//var tsProject = ts.createProject({
-//  declarationFiles: false,
-//  noExternalResolve: true,
-//  target: 'ES5',
-//  module: 'AMD'
-//});
-
 var tsProject = ts.createProject({
   typescript: require('typescript'),
   declarationFiles: false,
