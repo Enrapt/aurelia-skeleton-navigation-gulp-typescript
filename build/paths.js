@@ -15,7 +15,7 @@ module.exports = {
   sourceMapRelativePath: '/' + appRoot,
 
   unitSpecsSrc:  testRoot + 'unit/**/*.ts',
-  unitSpecsDist: outRoot  + 'test/unit/',
+  unitSpecsDist: outRoot  + '',
 
   e2eSpecsSrc:   testRoot + 'e2e/**/*.ts',
   e2eSpecsDist:  outRoot  + 'e2e/dist/'

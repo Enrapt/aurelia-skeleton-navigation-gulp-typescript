@@ -7,18 +7,20 @@ var sourcemaps = require('gulp-sourcemaps');
 var reportChange = require('../reportChange').reportChange;
 
 var tsProject = ts.createProject({
+  typescript: require('typescript'),
   declarationFiles: false,
   noExternalResolve: false,
-  target: 'ES5',
-  module: 'AMD'
+  target: "es5",
+  module: "amd",
+  emitDecoratorMetadata: true
 });
 
 // compile unit test TS file
 gulp.task('build-test', function () {
-  var tsResult = gulp.src([paths.unitSpecsSrc, paths.dtsSource])
+  var tsResult = gulp.src([paths.unitSpecsSrc, paths.dtsSource], {base: "src/"})
     .pipe(ts(tsProject));
   return tsResult.js
-    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
+    .pipe(sourcemaps.write({includeContent: false, sourceRoot: paths.sourceMapRelativePath }))
     .pipe(gulp.dest(paths.unitSpecsDist));
 });
 
