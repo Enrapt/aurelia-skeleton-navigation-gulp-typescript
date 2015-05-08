@@ -1,26 +1,24 @@
-module welcome {
+import {computedFrom} from 'aurelia-framework';
 
-  export class Welcome {
+export class Welcome {
 
-    heading = 'Welcome to the Aurelia Navigation App!';
-    firstName = 'John';
-    lastName = 'Doe';
+  heading = 'Welcome to the Aurelia Navigation App!';
+  firstName = 'John';
+  lastName = 'Doe';
 
-    get fullName() {
-      return `${this.firstName} ${this.lastName}`;
-    }
-
-    welcome() {
-      alert(`Welcome, ${this.fullName}!`);
-    }
-
+  @computedFrom('firstName', 'lastName') get fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 
-  export class UpperValueConverter {
-    toView(value) {
-      return value && value.toUpperCase();
-    }
+  welcome() {
+    alert(`Welcome, ${this.fullName}!`);
+  }
+
+}
+
+export class UpperValueConverter {
+  toView(value) {
+    return value && value.toUpperCase();
   }
 }
 
-export = welcome;
