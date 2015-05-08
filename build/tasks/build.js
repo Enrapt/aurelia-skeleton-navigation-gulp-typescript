@@ -19,6 +19,7 @@ var tsProject = ts.createProject({
 // gulp-typescript compiles TS files directly into ES5
 gulp.task('build-system', function () {
   var tsResult = gulp.src([paths.source, paths.dtsSource])
+    .pipe(sourcemaps.init())
     .pipe(ts(tsProject));
   return tsResult.js
     .pipe(sourcemaps.write({includeContent: false, sourceRoot: paths.sourceMapRelativePath }))
