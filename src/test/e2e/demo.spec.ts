@@ -1,5 +1,5 @@
-import PageObject_Welcome = require('./welcome.po');
-import PageObject_Skeleton = require('./skeleton.po');
+import { PageObject_Welcome } from './welcome.po';
+import { PageObject_Skeleton } from './skeleton.po';
 
 describe('aurelia skeleton app', function() {
   var po_welcome,

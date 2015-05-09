@@ -1,4 +1,4 @@
-class PageObject_Skeleton {
+export class PageObject_Skeleton {
 
   constructor() {
 
@@ -13,5 +13,3 @@ class PageObject_Skeleton {
     return browser.waitForHttpDone();
   }
 }
-
-export = PageObject_Skeleton;
