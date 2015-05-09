@@ -1,6 +1,6 @@
 /// <reference path="../../../dts/protractor.d.ts" />
 
-class PageObject_Welcome {
+export class PageObject_Welcome {
 
   constructor() {
 
@@ -39,8 +39,6 @@ class PageObject_Welcome {
         function(alert) { alert.accept(); return true; },
         function() { return false; }
       );
-    }, 100);
+    }, 2000);
   }
 }
-
-export = PageObject_Welcome;

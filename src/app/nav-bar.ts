@@ -1,5 +1,5 @@
-import aureliaFramework = require('aurelia-framework');
+import {bindable} from 'aurelia-framework';
 
 export class NavBar {
-  static metadata = aureliaFramework.Behavior.withProperty('router');
+  @bindable router = null
 }

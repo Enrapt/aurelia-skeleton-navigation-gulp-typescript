@@ -1,17 +1,16 @@
-/// <reference path="../../dts/aurelia.d.ts" />
-import aureliaHttpClient = require('aurelia-http-client');
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-http-client';
 
-var url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=rainier&tagmode=any&format=json';
-
-class Flickr{
-  static inject = [aureliaHttpClient.HttpClient];
-  constructor(public http: aureliaHttpClient.HttpClient){
+@inject(HttpClient)
+export class Flickr{
+  constructor(public http: HttpClient){
   }
   heading = 'Flickr';
   images = [];
+  url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=rainier&tagmode=any&format=json';
 
   activate(){
-    return this.http.jsonp(url).then(response => {
+    return this.http.jsonp(this.url).then(response => {
       this.images = response.content.items;
     });
   }
@@ -20,4 +19,3 @@ class Flickr{
     return confirm('Are you sure you want to leave?');
   }
 };
-export = Flickr;

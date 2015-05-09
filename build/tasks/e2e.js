@@ -6,11 +6,14 @@ var protractor = require("gulp-protractor").protractor;
 var ts = require('gulp-typescript');
 
 var tsProject = ts.createProject({
+  typescript: require('typescript'),
   declarationFiles: false,
   noExternalResolve: true,
   target: 'ES5',
-  module: 'commonjs'
+  module: 'commonjs',
+  emitDecoratorMetadata: true
 });
+
 
 // for full documentation of gulp-protractor,
 // please check https://github.com/mllrsohn/gulp-protractor

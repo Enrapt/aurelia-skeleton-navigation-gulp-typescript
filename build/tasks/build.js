@@ -8,18 +8,21 @@ var assign = Object.assign || require('object.assign');
 var ts = require('gulp-typescript');
 
 var tsProject = ts.createProject({
+  typescript: require('typescript'),
   declarationFiles: false,
   noExternalResolve: true,
-  target: 'ES5',
-  module: 'AMD'
+  target: "es5",
+  module: "amd",
+  emitDecoratorMetadata: true
 });
 
 // gulp-typescript compiles TS files directly into ES5
 gulp.task('build-system', function () {
   var tsResult = gulp.src([paths.source, paths.dtsSource])
+    .pipe(sourcemaps.init())
     .pipe(ts(tsProject));
   return tsResult.js
-    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
+    .pipe(sourcemaps.write({includeContent: false, sourceRoot: paths.sourceMapRelativePath }))
     .pipe(gulp.dest(paths.output));
 });
 

@@ -1,8 +1,8 @@
-/// <reference path="../../../dts/es6-promise.d.ts" />
 /// <reference path="../../../dts/jasmine.d.ts" />
-import Flickr = require('../../app/flickr');
+import {HttpClient} from 'aurelia-http-client';
+import {Flickr} from '../../app/flickr';
 
-class HttpStub {
+class HttpStub extends HttpClient {
   itemStub;
   url;
   jsonp(url) {

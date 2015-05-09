@@ -1,21 +1,24 @@
-# aurelia-skeleton-navigation-gulp-typescript
+# aurelia-skeleton-navigation
+
+[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
+[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is a TypeScript implementation of navigation skeleton of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to compile your TypeScript code with [gulp-typescript plugin](https://www.npmjs.com/package/gulp-typescript). Karma/Jasmine testing is also configured.
 
 This repository does not require Visual Studio to run.
 
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
+> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
 
 ## Notes regarding conversion of original skeleton application from ES6 to TypeScript
 
+0. **For those who have previous version (0.10.#) installed, it is recommended to make clean install of npm and jspm packages to force update of TS compiler and some other libraties.**
 1. Structure of folders was changed in order to let TypeScript compiler, System.js and Karma runner to reference all files correctly.
 2. All dependencies to Babel were removed, instead [gulp-typescript plugin](https://www.npmjs.com/package/gulp-typescript) is used.
-3. `/// <reference path="../../dts/aurelia.d.ts" />` reference are added to support intellisense for certain IDEs and editors. They are actually not required to for successful compilation.
-4. Original skeleton navigation [extends](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) Protractor / WebDriver, so we have added appropriate d.ts file to cover this extended functionality (dts/aurelia-protractor.d.ts).
-5. `gulp tdd` task was updated to enable watching and recompiling of both main and test sources and re-running karma when a change occurs. Note: you will need to use `gulp tdd` command instead of `karma start` if you want your TypeScript files to be watched.
-6. `gulp e2e` command was also updated to include TypeScript compilation step (of only e2e test sources).
+3. Original skeleton navigation [extends](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) Protractor / WebDriver, so we have added appropriate d.ts file to cover this extended functionality (dts/aurelia-protractor.d.ts).
+4. `gulp tdd` task was updated to enable watching and recompiling of both main and test sources and re-running karma when a change occurs. Note: you will need to use `gulp tdd` command instead of `karma start` if you want your TypeScript files to be watched.
+5. `gulp e2e` command was also updated to include TypeScript compilation step (of only e2e test sources).
 
-Copyrights on the definition files are respective of each contributor listed at the beginning of each definition file. Special thanks to [Mike Graham](https://github.com/cmichaelgraham) for his [Aurelia d.ts](https://github.com/cmichaelgraham/aurelia-typescript/blob/master/skel-nav-esri-vs-ts/skel-nav-esri-vs-ts/typings/aurelia/aurelia.d.ts).
+Copyrights on the definition files are respective of each contributor listed at the beginning of each definition file. Special thanks to [Mike Graham](https://github.com/cmichaelgraham) for his [Aurelia typings](https://github.com/cmichaelgraham/aurelia-typescript-atom/tree/master/skel-nav-ts/typings/aurelia).
 
 ## Running The App
 
@@ -37,7 +40,7 @@ To run the app, follow these steps.
   ```shell
   npm install -g jspm
   ```
-  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm endpoint config github` and following the prompts.
+  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm registry config github` and following the prompts.
 5. Install the client-side dependencies with jspm:
 
   ```shell
@@ -92,12 +95,17 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
 
 3. Configure the path to the webdriver by opening the file ```protractor.conf.js``` and adjusting the ```seleniumServerJar``` property. Typically its only needed to adjust the version number.
 
-4. Run the E2E-Tests
+4. Make sure your app runs and is accessible
+
+  ```shell
+  gulp watch
+  ```
+
+5. In another console run the E2E-Tests
 
   ```shell
   gulp e2e
   ```
-
 # 日本語バージョン
 
 このリポジトリは、TypeScriptで実装された [Aurelia](http://www.aurelia.io/) プラットフォームの基礎のナビゲーションサンプルです。[gulp-typescript プラグイン](https://www.npmjs.com/package/gulp-typescript)を利用して、TypeScriptソースをコンパイルするgulpタスクが設定してあります。Karma/Jasmineによるunit testタスクやProtractorによるe2e testタスクも設定してあります。
@@ -108,14 +116,14 @@ Integration tests are performed with [Protractor](http://angular.github.io/protr
 
 ## ES6からTypeScriptへの変換に関するメモ
 
+0. **このリポジトリの前のバージョンをインストールしている方は、npm や jspm のクリーンインストールするのをお勧めします。TSコンパイラや他のライブラリの更新させる必要があるためです。**
 1. TypeScriptのコンパイラやSystem.jsやKarmaがファイルを正しく参照できるために、ディレクトリ構成が変更されている。
 2. Babelの依存個所は全てなくなっている。
-3. コンパイルに必要はないが、色々なIDEやエディターでintellisenseが有効になるために、`/// <reference path="../../dts/aurelia.d.ts" />` を追加している。
-4. もともとのサンプルはProtractor / WebDriverの機能を[拡張している](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) ので、コンパイルエラーにならないようにd.ts(dts/aurelia-protractor.d.ts)が追加されている。
-5. `gulp tdd`タスクがTypescriptのメインとテストのソースを監視し、変更があったときに再コンパイルし、テストが実施されるように対応してある。
-6. `gulp e2e`タスクもe2eテストのソースのコンパイルステップが含まれるように更新されている。
+3. もともとのサンプルはProtractor / WebDriverの機能を[拡張している](https://github.com/aurelia/skeleton-navigation/blob/master/aurelia.protractor.js) ので、コンパイルエラーにならないようにd.ts(dts/aurelia-protractor.d.ts)が追加されている。
+4. `gulp tdd`タスクがTypescriptのメインとテストのソースを監視し、変更があったときに再コンパイルし、テストが実施されるように対応してある。
+5. `gulp e2e`タスクもe2eテストのソースのコンパイルステップが含まれるように更新されている。
 
-TypeScript型定義ファイルの著作権については各d.tsファイルの先頭に記述されています。[aurelia.d.ts](https://github.com/cmichaelgraham/aurelia-typescript/blob/master/skel-nav-esri-vs-ts/skel-nav-esri-vs-ts/typings/aurelia/aurelia.d.ts)を提供してくださった[Mike Graham](https://github.com/cmichaelgraham)に殊に感謝します。
+TypeScript型定義ファイルの著作権については各d.tsファイルの先頭に記述されています。[Aureliaの型の定義](https://github.com/cmichaelgraham/aurelia-typescript-atom/tree/master/skel-nav-ts/typings/aurelia)を提供してくださった[Mike Graham](https://github.com/cmichaelgraham)に殊に感謝します。
 
 ## アプリケーションの起動方法
 
@@ -137,7 +145,7 @@ TypeScript型定義ファイルの著作権については各d.tsファイルの
   ```shell
   npm install -g jspm
   ```
-  > **注意** jspmはsemverに対応したパッケージをインストールするために、GitHubに対してリクエストを送信しているが、未認証のリクエスト数に対して制限がかけられています。この制限による問題をさけるために、自分のGitHubユーザー情報をjspmに設定するのがおすすめです。まずはこの`jspm endpoint config github`を実行してから、表示される指示に従って設定してください。
+  > **注意** jspmはsemverに対応したパッケージをインストールするために、GitHubに対してリクエストを送信しているが、未認証のリクエスト数に対して制限がかけられています。この制限による問題をさけるために、自分のGitHubユーザー情報をjspmに設定するのがおすすめです。まずはこの`jspm registry config github`を実行してから、表示される指示に従って設定してください。
 
 5. jspmを利用して、クライアントのライブラリをインストールします。
 
@@ -194,7 +202,13 @@ TypeScript型定義ファイルの著作権については各d.tsファイルの
 
 3. `protractor.conf.js`でWebDriverへのパスと`seleniumServerJar`プロパティを調整してください。基本的に、バージョンの調整だけが必要です。
 
-4. E2Eテストを実施します。このコマンドでE2Eテストのソースがコンパイルされてから、テストが実施されます。
+4. アプリケーションを起動します。
+
+  ```shell
+  gulp watch
+  ```
+
+5. 別なコンソールのウィンドウでE2Eテストを実施します。このコマンドでE2Eテストのソースがコンパイルされてから、テストが実施されます。
 
   ```shell
   gulp e2e
