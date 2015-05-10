@@ -1,4 +1,3 @@
-/// <reference path="../../../dts/jasmine.d.ts" />
 import {App} from '../../app/app';
 import {Router} from 'aurelia-router';
 

@@ -1,4 +1,3 @@
-/// <reference path="../../../dts/jasmine.d.ts" />
 import {HttpClient} from 'aurelia-http-client';
 import {Flickr} from '../../app/flickr';
 
