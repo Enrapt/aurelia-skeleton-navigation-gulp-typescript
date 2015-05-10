@@ -1,5 +1,3 @@
-/// <reference path="../../../dts/protractor.d.ts" />
-
 export class PageObject_Welcome {
 
   constructor() {

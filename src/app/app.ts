@@ -1,5 +1,5 @@
-/// <amd-dependency path="bootstrap" />
-/// <amd-dependency path="bootstrap/css/bootstrap.css!" />
+import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
 import {Router} from 'aurelia-router';
 
 export class App {
